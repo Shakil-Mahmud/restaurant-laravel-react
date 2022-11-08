@@ -22,7 +22,10 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', function () {
-    return "Hello World";
+    return response()->json([
+        'success' => true,
+        'data' => "Hello World",
+    ], 200);
 });
 
 //############ Admin Routes##############
