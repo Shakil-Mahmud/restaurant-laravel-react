@@ -1,8 +1,9 @@
 import React from "react";
+import Mainscreen from "./Pages/MainScreen/Mainscreen";
 function App() {
   return (
     <div>
-      <h1 className="text-5xl font-bold underline">Hello world!</h1>
+        <Mainscreen />
     </div>
   );
 }
