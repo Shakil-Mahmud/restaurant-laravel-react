@@ -13,7 +13,7 @@ function Header() {
         </div>
 
         <div className="flex flex-row space-x-6">
-          <div className="flex flex-row ">OurMenu</div>
+          <div className="flex flex-row ">Our Menu</div>
           <div className="flex flex-row ">Special Offer</div>
           <div className="flex flex-row ">Contact Us</div>
           <div className="flex flex-row ">About Us</div>
