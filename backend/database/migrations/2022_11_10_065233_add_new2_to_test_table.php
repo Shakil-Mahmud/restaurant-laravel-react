@@ -13,9 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('items', function (Blueprint $table) {
-            $table->integer('category');
-            $table->foreign('categories_id')->references('id')->on('categories');
+        Schema::table('test', function (Blueprint $table) {
+            $table->integer('category_id')->unsigned()->change();
+            $table->foreign('category_id')->references('id')->on('categories');
         });
     }
 
@@ -26,8 +26,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('items', function (Blueprint $table) {
-            $table->dropColumn('category');
+        Schema::table('test', function (Blueprint $table) {
+            $table->dropColumn('category_id');
         });
     }
 };

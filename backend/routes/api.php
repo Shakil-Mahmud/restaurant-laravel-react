@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\OrderController;
 use GuzzleHttp\Middleware;
@@ -42,6 +43,18 @@ Route::group([ 'middleware' => ['auth:sanctum', 'ability:admin'] ], function(){
     Route::post('/items/store', [ItemController::class, 'store'])->name('item.store');
     Route::post('/items/{id}', [ItemController::class, 'update'])->name('item.update');
     Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
+});
+
+//############ Category Routes ############
+// public routes
+Route::get('/categories/all', [CategoryController::class, 'index'])->name('category.all');
+Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('category.show');
+
+// admin protected routes
+Route::group([ 'middleware' => ['auth:sanctum', 'ability:admin'] ], function(){
+    Route::post('/categories/store', [CategoryController::class, 'store'])->name('category.store');
+    Route::post('/categories/{id}', [CategoryController::class, 'update'])->name('category.update');
+    Route::delete('/categories/{id}', [CategoryController::class, 'destroy'])->name('category.destroy');
 });
 
 //############ Orders Routes ############
