@@ -4,3 +4,4 @@ export {default as SignIn} from './Authentication/SignIn';
 export {default as UpdatePassword} from './Authentication/UpdatePassword';
 export {default as ResetPassword} from './Authentication/ResetPassword';
 export {default as ForgetPasswordEmail} from './Authentication/ForgetPasswordEmail';
+export {default as PasswordResetOTP} from './Authentication/PasswordResetOTP';
