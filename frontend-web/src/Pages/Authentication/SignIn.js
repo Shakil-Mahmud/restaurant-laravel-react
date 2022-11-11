@@ -1,4 +1,5 @@
 
+import axios from 'axios';
 import React from 'react'
 import { Link } from "react-router-dom";
 import { FormHeading, InputField, SubmitButton } from '../../Components/components';
@@ -6,24 +7,29 @@ import AuthenticationForm from '../../Layouts/AuthenticationForm/AuthenticationF
 import { SIGN_IN } from '../../Routes/apiUrls';
 import { validateEmail } from "../../Utils/ValidationRules";
 function SignIn() {
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
         const result = Object.fromEntries(data.entries());
-        console.log(result.email);
+        console.log(result);
         console.log(validateEmail(result.email));
-
-        if(validateEmail(result.email)){
+        if(validateEmail(result.email) && result.password!=="" ){
             console.log(SIGN_IN);
-        // send post request
-
+            const response = await axios.post(SIGN_IN,
+                JSON.stringify(result),
+                {
+                    headers: { 'Content-Type': 'application/json' },
+                    withCredentials: true
+                });
+                console.log(response);
+          // send post request
         }
     }
   return (
     <>
       <AuthenticationForm>
         <FormHeading text={"SignIn"} />
-        <form className="space-y-5 mt-5"  onSubmit={handleSubmit}>
+        <form className="space-y-5 mt-5" onSubmit={handleSubmit}>
           <InputField
             label={"Email Address"}
             type={"email"}
@@ -42,10 +48,10 @@ function SignIn() {
             required={true}
             // value=""
           />
-          <SubmitButton />
+          <SubmitButton text={"SignIn"} />
         </form>
         <div className="flex w-full mt-5 items-center">
-          <span className="text-sm"> already have an account?</span>
+          <span className="text-sm"> Don't have an account?</span>
           <Link to="/signUp" className="text-blue-300 ml-2">
             {" "}
             SignUp
