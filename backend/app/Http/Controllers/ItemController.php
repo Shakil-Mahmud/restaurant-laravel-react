@@ -62,8 +62,8 @@ class ItemController extends Controller
                 'name' => $request['name'],
                 'price' => $request['price'],
                 'available' => $request['available'],
+                'category_id' => $request['category_id'],
             ]);
-
             if(!$item){
                 throw new Exception($item->errors(), 2);
             }
