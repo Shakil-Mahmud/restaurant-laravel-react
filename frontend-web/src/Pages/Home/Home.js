@@ -4,15 +4,14 @@ import { HeroSection, Menu } from '../../Components/components';
 function Home() {
   return (
     <>
-      <div className="flex flex-row justify-center">
-        <div className="flex flex-col">
+      <div className="flex flex-row justify-center my-2">
+        <div className="flex flex-col space-y-5 ">
           <HeroSection />
-          <Menu />
+          <Menu menuHeading={"Fan Favorite Food"} />
         </div>
       </div>
     </>
   );
-  <Menu />
 }
 
 export default Home
