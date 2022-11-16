@@ -1,28 +1,20 @@
-import React, { useState } from 'react'
+import React from 'react'
 import MenuItem from './MenuItem'
-import axios  from "axios";
-import { ALL_ITEMS } from '../../Routes/apiUrls';
 import { FormHeading } from '../components';
-function Menu({menuHeading, items}) {
-  // const [items, setItems] = useState([]);
-  // async function getData() {
-  //   const data =  axios.get(ALL_ITEMS).then(res=>res.data).then(data => setItems(data));
-  // }
-  // axios.get(ALL_ITEMS).then(res=>res.data).then(data => setItems(data));
-  // console.log(items);
-  // if(data.success)
-  //   console.log(data);
+function Menu({ menuHeading, items }) {
   return (
     <>
-      <div className="flex flex-col space-y-2 ">
+      <div className="flex flex-col space-y-2 w-full ">
         <FormHeading text={menuHeading} />
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
-        <MenuItem />
+        {
+          items.map(
+            (item, index) =>
+              <MenuItem key={index} item={item} text={'testing'} />
+          )
+        }
       </div>
     </>
-  )
+  );
 }
 
 export default Menu;

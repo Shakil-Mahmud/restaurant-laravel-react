@@ -45,6 +45,7 @@ class AuthenticatedTokenController extends Controller
         $token = $user->createToken('userToken', ['customer'])->plainTextToken;
         // $cookie = cookie('userJwtToken', $token, 60 * 24);
         $response = [
+            'success' => true,
             'user' => $user,
             'token' => $token
         ];

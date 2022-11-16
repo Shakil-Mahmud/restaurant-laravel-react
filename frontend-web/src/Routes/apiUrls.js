@@ -9,3 +9,6 @@ export const CHECK_OTP = API_URL + "otp/check";
 
 
 export const ALL_ITEMS = API_URL+"items/all";
+export const ALL_CATEGORIES = API_URL+"categories/all";
+export const CATEGORIES = API_URL+"categories/";
+export const Items_By_CATEGORIES = API_URL + "categories/items/";

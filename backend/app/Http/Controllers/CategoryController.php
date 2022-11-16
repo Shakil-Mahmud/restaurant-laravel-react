@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Exception;
 use App\Models\Category;
+use App\Models\Item;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Symfony\Component\HttpFoundation\Response;
@@ -73,6 +74,7 @@ class CategoryController extends Controller
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
     public function update(Request $request, $id){
         $validate = Validator::make($request->all(), [
             'name' => 'required|string|max:50',
@@ -98,6 +100,7 @@ class CategoryController extends Controller
             'message' => "Request processed successfully",
         ], Response::HTTP_CREATED);
     }
+
     public function destroy($id){
         try {
             $category = Category::find($id);
@@ -108,6 +111,29 @@ class CategoryController extends Controller
             return response()->json([
                 'success' => true,
                 'message' => "category deleted successfully",
+            ], Response::HTTP_OK);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function showItemsByCategory($id){
+        try {
+            $category = Category::find($id);
+            if(!$category){
+                throw new Exception("Cannot find this category", 1);
+            }
+            $items = Item::where('category_id', $id)->get();
+            if (!$category) {
+                throw new Exception("No items found", 1);
+            }
+            return response()->json([
+                'success' => true,
+                'data' => $items,
+                'message' => "success",
             ], Response::HTTP_OK);
         } catch (\Exception $e) {
             return response()->json([

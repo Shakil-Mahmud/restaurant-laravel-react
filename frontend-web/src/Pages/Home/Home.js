@@ -7,7 +7,7 @@ function Home() {
       <div className="flex flex-row justify-center my-2">
         <div className="flex flex-col space-y-5 ">
           <HeroSection />
-          <Menu menuHeading={"Fan Favorite Food"} />
+          {/* <Menu menuHeading={"Fan Favorite Food"} /> */}
         </div>
       </div>
     </>

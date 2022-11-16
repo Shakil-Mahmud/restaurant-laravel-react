@@ -16,6 +16,7 @@ class ItemController extends Controller
             'name' => 'required|string|max:50',
             'price' => 'required|numeric',
             'available' => 'required|boolean',
+            'category_id' => 'required',
         ]);
 
         return $validate;

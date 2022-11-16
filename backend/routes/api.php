@@ -41,6 +41,7 @@ Route::get('/items/{id}', [ItemController::class, 'show'])->name('item.show');
 // admin protected routes
 Route::group([ 'middleware' => ['auth:sanctum', 'ability:admin'] ], function(){
     Route::post('/items/store', [ItemController::class, 'store'])->name('item.store');
+    Route::post('/items/store', [ItemController::class, 'store'])->name('item.store');
     Route::post('/items/{id}', [ItemController::class, 'update'])->name('item.update');
     Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
 });
@@ -49,6 +50,7 @@ Route::group([ 'middleware' => ['auth:sanctum', 'ability:admin'] ], function(){
 // public routes
 Route::get('/categories/all', [CategoryController::class, 'index'])->name('category.all');
 Route::get('/categories/{id}', [CategoryController::class, 'show'])->name('category.show');
+Route::get('/categories/items/{id}', [CategoryController::class, 'showItemsByCategory'])->name('category.items');
 
 // admin protected routes
 Route::group([ 'middleware' => ['auth:sanctum', 'ability:admin'] ], function(){
