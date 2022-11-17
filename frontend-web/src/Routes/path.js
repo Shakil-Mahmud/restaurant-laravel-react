@@ -12,3 +12,4 @@ export const CHECK_OTP = "/check/otp";
 export const RESET_PASSWORD = "/reset/password";
 
 export const MENU = "/menu";
+export const ITEM = "/item";

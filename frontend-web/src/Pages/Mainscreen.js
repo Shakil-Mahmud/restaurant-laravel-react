@@ -1,10 +1,8 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom';
-import { Menu } from '../Components/components';
-import { Footer, Header } from "../Layouts/Layouts";
 import MainLayout from '../Layouts/MainLayout/MainLayout';
-import { ABOUT_US, CHECK_OTP, CONTACT_US, FORGET_PASSWORD, MENU, RESET_PASSWORD, SIGN_IN, SIGN_UP, SPECIAL_OFFER, UPDATE_PASSWORD } from '../Routes/path';
-import { Home, SignIn, SignUp, UpdatePassword, ForgetPasswordEmail, ResetPassword, PasswordResetOTP, MenuPage, AboutUs, ContactUs } from "./index";
+import { ABOUT_US, CHECK_OTP, CONTACT_US, FORGET_PASSWORD, ITEM, MENU, RESET_PASSWORD, SIGN_IN, SIGN_UP, SPECIAL_OFFER, UPDATE_PASSWORD } from '../Routes/path';
+import { Home, SignIn, SignUp, UpdatePassword, ForgetPasswordEmail, ResetPassword, PasswordResetOTP, MenuPage, AboutUs, ContactUs, SingleItem } from "./index";
 import SpecialOffer from './SpecialOffer/SpecialOffer';
 
 function Mainscreen() {
@@ -18,6 +16,8 @@ function Mainscreen() {
           <Route path={CONTACT_US} element={<ContactUs />} />
           <Route path={SPECIAL_OFFER} element={<SpecialOffer />} />
           <Route path={MENU} element={<MenuPage />} />
+          <Route path={ITEM} element={<SingleItem />} />
+
           {/* <Unauthorized> */}
           {/*   user can access only if not authenticated */}
           <Route path={SIGN_UP} element={<SignUp />} />

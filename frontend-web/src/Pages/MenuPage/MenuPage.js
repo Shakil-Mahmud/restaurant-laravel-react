@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AllMenuButton, Menu } from '../../Components/components'
+import { PageContainer } from '../../Layouts/Layouts';
 
 function MenuPage() {
   const {state} = useLocation();
@@ -10,7 +11,7 @@ function MenuPage() {
 
   return (
     <>
-      <div className="flex flex-row w-ful mx-2">
+      <PageContainer>
         <div className="flex flex-col w-full items-center">
           {state.type === "all" ? (
             state.categories.map((category, index) => (
@@ -23,7 +24,7 @@ function MenuPage() {
             </>
           )}
         </div>
-      </div>
+      </PageContainer>
     </>
   );
 }

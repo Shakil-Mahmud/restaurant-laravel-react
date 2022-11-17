@@ -1,11 +1,16 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import { DUMMY_ITEM } from "../../Assets";
+import { ITEM } from '../../Routes/path';
 
 function MenuItem({item}) {
+  const navigate = useNavigate();
   // console.log("menuitem:::::::", item);
   return (
     <>
-      <div className="flex flex-row items-center justify-between bg-white rounded-sm shadow-sm px-2">
+      <div className="flex flex-row items-center justify-between bg-white rounded-sm shadow-sm px-2 hover:cursor-pointer "
+        onClick={()=> navigate(ITEM, {state: {item : item} }) }
+      >
         <div className="flex space-x-3">
           <img
             className="w-[5rem] h-[4rem] rounded-sm "

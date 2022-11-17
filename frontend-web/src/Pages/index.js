@@ -12,4 +12,4 @@ export { default as MenuPage } from "./MenuPage/MenuPage";
 export { default as AboutUs } from "./AboutUs/AboutUs";
 export { default as ContactUs } from "./ContactUs/ContactUs";
 export { default as SpecialOffer } from "./SpecialOffer/SpecialOffer";
-
+export {default as SingleItem} from './MenuPage/SingleItem';

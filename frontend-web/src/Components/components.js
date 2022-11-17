@@ -1,6 +1,9 @@
 export { default as HeroSection } from "./HeroSection/HeroSection";
+
 export { default as Menu } from "./Menu/Menu";
 export { default as MenuItem } from "./Menu/MenuItem";
+export { default as SingleItemImage } from "./Menu/SingleItemImage";
+
 
 export { default as Header } from "./Header/Header";
 export { default as Footer } from "./Footer/Footer";
@@ -9,6 +12,10 @@ export { default as Footer } from "./Footer/Footer";
 
 // Typography
 export { default as FormHeading } from "./Typography/FormHeading";
+export { default as ItemCategory } from "./Typography/ItemCategory";
+export { default as ItemName } from "./Typography/ItemName";
+export { default as ItemDescription } from "./Typography/ItemDescription";
+export { default as ItemPrice } from "./Typography/ItemPrice";
 
 // Form components
 export { default as InputField } from "./FormComponents/InputField";
