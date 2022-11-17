@@ -15,4 +15,5 @@ export { default as InputField } from "./FormComponents/InputField";
 
 // Buttons
 export { default as SubmitButton } from "./Buttons/SubmitButton";
+export { default as AllMenuButton } from "./Buttons/AllMenuButton";
 

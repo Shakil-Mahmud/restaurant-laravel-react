@@ -1,18 +1,34 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import MenuItem from './MenuItem'
 import { FormHeading } from '../components';
-function Menu({ menuHeading, items }) {
+import axios from 'axios';
+import { Items_By_CATEGORIES } from '../../Routes/apiUrls';
+function Menu({  category }) {
+    // const [category, setCategory] = useState(categoryID);
+    const [items, setItems] = useState([]);
+    const getCategories = async () => {
+      const data = await axios.get(Items_By_CATEGORIES + category.id);
+      if (data?.data.success === true) {
+        setItems(data?.data?.data);
+      }
+    };
+    useEffect(() => {
+      getCategories();
+    }, [category.id]);
+    // console.log(Object.keys(items).length && typeof items === 'object');
+
   return (
     <>
-      <div className="flex flex-col space-y-2 w-full ">
-        <FormHeading text={menuHeading} />
-        {
-          items.map(
-            (item, index) =>
-              <MenuItem key={index} item={item} text={'testing'} />
-          )
-        }
-      </div>
+      {Object.keys(items).length && typeof items === "object" ?
+        <div className="flex flex-col space-y-2 w-full ">
+            <FormHeading text={category.name} />
+            {items.map((item, index) => (
+              <MenuItem key={index} item={item} />
+            ))}
+        </div>
+        :
+        <></>
+    }
     </>
   );
 }

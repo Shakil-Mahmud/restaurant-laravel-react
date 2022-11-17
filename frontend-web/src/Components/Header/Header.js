@@ -9,7 +9,7 @@ function Header() {
   const navigate = useNavigate();
   const [categories, setCategories] = useState([]);
   const [hidden, setHidden] = useState(false);
-  const menu = []
+
   const getCategories = async () => {
     const data = await axios.get(ALL_CATEGORIES);
     if(data?.data.success === true) {
@@ -72,7 +72,7 @@ function Header() {
                 <li>
                   <Link
                     to={MENU}
-                    state={{ category: "all" }}
+                    state={{ categories: categories, type: "all" }}
                     className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                   >
                     All Menu
@@ -83,7 +83,9 @@ function Header() {
                     <li
                       key={index}
                       onClick={() =>
-                        navigate(MENU, { state: { categoryID: category.id, categoryName: category.name } })
+                        navigate(MENU, {
+                          state: { categories: category, type: "single" },
+                        })
                       }
                       className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                     >
