@@ -1,38 +1,34 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { LOGO } from "../../Assets";
 import { ALL_CATEGORIES } from "../../Routes/apiUrls";
 import { ABOUT_US, CONTACT_US, MENU, SIGN_IN, SIGN_UP, SPECIAL_OFFER  } from "../../Routes/path";
-
+import {
+  selectAllCategories,
+  getCategoriesStatus,
+} from "../../Redux/Features/categoriesSlice";
 function Header() {
+  const rdcat = useSelector(selectAllCategories);
+  const categoriesStates = useSelector(getCategoriesStatus);
+  console.log(categoriesStates);
+  console.log("rrrrrrrrrrreeeeeeeeeeedddddddduuxxxxxx", rdcat);
+  // if(getCategories == )
   const navigate = useNavigate();
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState( categoriesStates==='succeeded'? rdcat : []);
   const [hidden, setHidden] = useState(false);
 
   const getCategories = async () => {
     const data = await axios.get(ALL_CATEGORIES);
     if(data?.data.success === true) {
       setCategories(data?.data?.data);
-      // categories.map( (category) => {
-      //     // <Link to={{pathname: MENU, state: { category: category.id}}}>{category.name}</Link>
-      //      return menu.push(
-      //       <li>
-      //         <Link
-      //           to={{ pathname: MENU, state: { category: category.id, categoryName: category.name } }}
-      //           className="block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-      //         >
-      //           {category.name}
-      //         </Link>
-      //       </li>
-      //     );
-      // });
     }
   };
   useEffect(() => {
     getCategories();
   }, []);
-  // console.log(categories);
+  console.log(categories);
 
   const handleMenu = () => {
     setHidden(!hidden);

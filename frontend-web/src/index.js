@@ -5,7 +5,10 @@ import App from './App';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from 'react-redux';
 import {store} from './Redux/store';
+import { fetchCategories } from './Redux/Features/categoriesSlice';
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
+store.dispatch(fetchCategories());
 
 root.render(
   <React.StrictMode>

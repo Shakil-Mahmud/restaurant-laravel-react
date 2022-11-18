@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom';
 import { AllMenuButton, Menu } from '../../Components/components'
 import { PageContainer } from '../../Layouts/Layouts';
 
 function MenuPage() {
   const {state} = useLocation();
+  const [type, setType] = useState()
   const navigate = useNavigate();
   const handleAllMenu = () => {console.log("Hello")}
   // const handleAllMenu = () => navigate(MENU, {state: {categories}})
