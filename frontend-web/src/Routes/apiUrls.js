@@ -1,5 +1,6 @@
 const HOST = process.env.REACT_APP_HOST
-const API_URL = HOST+"api/";
+// const HOST = "http://127.0.0.1:8000/";
+export const API_URL = HOST+"api/";
 
 // Authentication Urls
 export const SIGN_IN = API_URL+"login";

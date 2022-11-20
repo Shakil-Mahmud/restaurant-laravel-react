@@ -3,13 +3,12 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { LOGO } from "../../Assets";
-import { ALL_CATEGORIES } from "../../Routes/apiUrls";
+import { ALL_CATEGORIES, API_URL } from "../../Routes/apiUrls";
 import { ABOUT_US, CONTACT_US, MENU, SIGN_IN, SIGN_UP, SPECIAL_OFFER  } from "../../Routes/path";
-import {
-  selectAllCategories,
-  getCategoriesStatus,
-} from "../../Redux/Features/categoriesSlice";
+import { selectAllCategories, getCategoriesStatus, } from "../../Redux/Features/categoriesSlice";
+
 function Header() {
+  console.log("hhhhhhhhhhhhhhh", API_URL);
   const rdcat = useSelector(selectAllCategories);
   const categoriesStates = useSelector(getCategoriesStatus);
   console.log(categoriesStates);
