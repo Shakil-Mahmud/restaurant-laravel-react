@@ -55,7 +55,9 @@ class RegisterUserController extends Controller
             }
 
             $response = [
-                'user' => $user,
+                'success' => true,
+                'data' => $user,
+                'message' => "You have registered successfully",
             ];
         } catch (\Exception $e) {
             return response()->json([

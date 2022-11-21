@@ -1,12 +1,14 @@
 import axios from 'axios';
 import React from 'react'
-import { Form, Link } from 'react-router-dom';
+import { Form, Link, useNavigate } from 'react-router-dom';
 import { FormHeading, InputField, SubmitButton } from '../../Components/components'
 import AuthenticationForm from '../../Layouts/AuthenticationForm/AuthenticationForm'
 import { SIGN_UP } from '../../Routes/apiUrls';
+import { SIGN_IN } from '../../Routes/path';
 import { validateEmail } from '../../Utils/ValidationRules';
 
 function SignUp() {
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
@@ -22,6 +24,10 @@ function SignUp() {
           });
 
           console.log(response);
+          if(response?.data.success){
+            navigate(SIGN_IN);
+          }
+
         } catch (error) {
             console.log(error);
         }
