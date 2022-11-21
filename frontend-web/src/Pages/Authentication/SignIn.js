@@ -1,12 +1,18 @@
 
 import axios from 'axios';
 import React from 'react'
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
+import { Link, useNavigate } from "react-router-dom";
 import { FormHeading, InputField, SubmitButton } from '../../Components/components';
 import AuthenticationForm from '../../Layouts/AuthenticationForm/AuthenticationForm'
+import { login, selectCurrentUser, selectTest } from '../../Redux/Features/userSlice';
 import { SIGN_IN } from '../../Routes/apiUrls';
 import { validateEmail } from "../../Utils/ValidationRules";
 function SignIn() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    console.log(useSelector(selectCurrentUser));
+    // console.log();
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -21,7 +27,14 @@ function SignIn() {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 });
-                console.log(response);
+                // console.log(response?.data?.success);
+                // console.log(response?.data?.user);
+                // console.log(response?.data?.token);
+                if (response?.data?.success) {
+                  dispatch(login({user:response?.data?.user, token: response?.data?.token}));
+                  navigate('/');
+                }
+
           // send post request
         }
     }

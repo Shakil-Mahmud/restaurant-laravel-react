@@ -16,6 +16,7 @@ export { default as ItemCategory } from "./Typography/ItemCategory";
 export { default as ItemName } from "./Typography/ItemName";
 export { default as ItemDescription } from "./Typography/ItemDescription";
 export { default as ItemPrice } from "./Typography/ItemPrice";
+export { default as NavLinkText } from "./Typography/NavLinkText";
 
 // Form components
 export { default as InputField } from "./FormComponents/InputField";
@@ -23,4 +24,5 @@ export { default as InputField } from "./FormComponents/InputField";
 // Buttons
 export { default as SubmitButton } from "./Buttons/SubmitButton";
 export { default as AllMenuButton } from "./Buttons/AllMenuButton";
+export { default as NavbarDropdownButton } from "./Buttons/NavbarDropdownButton";
 

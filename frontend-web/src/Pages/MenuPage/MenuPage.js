@@ -21,7 +21,7 @@ function MenuPage() {
           ) : (
             <>
               <Menu category={state?.categories} />
-              <AllMenuButton handleAllMenu={handleAllMenu} />
+              {/* <AllMenuButton handleAllMenu={handleAllMenu} /> */}
             </>
           )}
         </div>
