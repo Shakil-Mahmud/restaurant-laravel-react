@@ -8,7 +8,7 @@ function MenuItem({item}) {
   // console.log("menuitem:::::::", item);
   return (
     <>
-      <div className="flex flex-row items-center justify-between bg-white rounded-sm shadow-sm px-2 hover:cursor-pointer "
+      <div className="flex flex-row items-center justify-between bg-white rounded-sm shadow-sm pr-2 hover:cursor-pointer "
         onClick={()=> navigate(ITEM, {state: {item : item} }) }
       >
         <div className="flex space-x-3">

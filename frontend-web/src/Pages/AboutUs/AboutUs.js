@@ -2,6 +2,7 @@ import React from 'react'
 import { BigTitle, ItemDescription } from '../../Components/components'
 import { PageContainer } from '../../Layouts/Layouts'
 import { DUMMY_ITEM } from "../../Assets";
+import BackgroundHero from '../../Components/HeroSection/BackgroundHero';
 
 function AboutUs() {
   const description =

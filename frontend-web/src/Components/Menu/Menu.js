@@ -20,7 +20,7 @@ function Menu({  category }) {
   return (
     <>
       {Object.keys(items).length && typeof items === "object" ?
-        <div className="flex flex-col space-y-2 w-full ">
+        <div className="flex flex-col space-y-2 w-full sm:w-2/3 md:w-1/2 mb-[2rem]">
             <FormHeading text={category.name} />
             {items.map((item, index) => (
               <MenuItem key={index} item={item} />
