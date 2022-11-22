@@ -17,6 +17,4 @@ export { default as InputTextArea } from "./FormComponents/InputTextArea";
 
 // Buttons
 export { default as SubmitButton } from "./Buttons/SubmitButton";
-export { default as AllMenuButton } from "./Buttons/AllMenuButton";
-export { default as NavbarDropdownButton } from "./Buttons/NavbarDropdownButton";
 

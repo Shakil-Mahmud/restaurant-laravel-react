@@ -2,8 +2,9 @@ import React from "react";
 import { selectCurrentUser } from "./Redux/Features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {Route, Routes} from 'react-router-dom';
-import { Dashboard, Login } from "./pages";
+import { Categories, Dashboard, Items, Login } from "./pages";
 import MainLayout from "./Layouts/MainLayout/MainLayout";
+import { CATEGORY, ITEM } from "./Routes/path";
 
 function App() {
   const user = useSelector(selectCurrentUser);
@@ -19,8 +20,14 @@ function App() {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/" element={<MainLayout  />} >
+          <Route path="/" element={<MainLayout />}>
             <Route index element={<Dashboard />} />
+            <Route path={ITEM}>
+              <Route index element={<Items />} />
+            </Route>
+            <Route path={CATEGORY}>
+              <Route index element={<Categories />} />
+            </Route>
           </Route>
         </Routes>
       )}

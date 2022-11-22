@@ -12,11 +12,11 @@ import { logout, selectCurrentUser } from "../../Redux/Features/userSlice";
 function Header() {
   const dispatch = useDispatch();
   const user = useSelector(selectCurrentUser);
-  const rdcat = useSelector(selectAllCategories);
+  const allCategories = useSelector(selectAllCategories);
   const categoriesStates = useSelector(getCategoriesStatus);
 
   const navigate = useNavigate();
-  const [categories, setCategories] = useState( categoriesStates==='succeeded'? rdcat : []);
+  const [categories, setCategories] = useState( categoriesStates==='succeeded'? allCategories : []);
 
   const handleLogout = () => {
     dispatch(logout());
