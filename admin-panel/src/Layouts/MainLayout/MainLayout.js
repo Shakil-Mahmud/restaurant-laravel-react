@@ -8,7 +8,7 @@ function MainLayout() {
         <div className="flex w-1/4 bg-cyan-100 min-h-screen">
           <Sidebar />
         </div>
-        <div className="flex flex-col w-full">
+        <div className="flex flex-col w-full bg-white px-2 py-2">
             <Navbar />
             <main>
               <Outlet />

@@ -6,7 +6,7 @@ function Sidebar({className}) {
   return (
     <>
       <div
-        className={`flex flex-col w-full min-h-screen rounded-sm py-3 gap-y-2 justify-start mt-[5rem] `}
+        className={`flex flex-col w-full min-h-screen rounded-sm py-3 gap-y-2 justify-start mt-[5rem]  shadow-lg`}
       >
         {/* <SidebarItem key={1} name="Dash" icon={<RiDashboardLine className='w-full h-full' />} /> */}
         <SidebarItem key={1} name="Dash" icon={""} />

@@ -14,7 +14,15 @@ export { default as BigTitle } from "./Typography/BigTitle";
 // Form components
 export { default as InputField } from "./FormComponents/InputField";
 export { default as InputTextArea } from "./FormComponents/InputTextArea";
+export { default as SearchBar } from "./FormComponents/SearchBar";
+export { default as FilterDropdownBtn } from "./FormComponents/FilterDropdownBtn";
 
 // Buttons
 export { default as SubmitButton } from "./Buttons/SubmitButton";
+export { default as AddButton } from "./Buttons/AddButton";
+export { default as ToggleButton } from "./Buttons/ToggleButton";
+
+// Items
+export { default as ItemsList } from "./Items/ItemsList";
+export { default as SingleItem } from "./Items/SingleItem";
 
