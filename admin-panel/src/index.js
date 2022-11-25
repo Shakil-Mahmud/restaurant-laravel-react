@@ -5,7 +5,9 @@ import App from './App';
 import {BrowserRouter} from 'react-router-dom'
 import { Provider } from 'react-redux';
 import {store} from './Redux/store'
+import { fetchAllItems } from './Redux/Features/itemSlice';
 
+// store.dispatch(fetchAllItems());
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

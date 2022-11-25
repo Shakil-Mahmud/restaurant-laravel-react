@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { ToggleButton } from "../../Components/components";
 
-function SingleItem() {
-    const [checked, setChecked] = useState(true);
+function SingleItem({item}) {
+  // console.log(">>>>>> Single item page");
+  // console.log("*******Single item", item);
+  const [checked, setChecked] = useState(true);
   const handleCheck = ()=>{
     setChecked(!checked);
   }
@@ -23,8 +25,8 @@ function SingleItem() {
             className="w-full h-full rounded-sm "
           /> */}
         </div>
-        <p>Book name</p>
-        <p>Author name</p>
+        <p>{item?.name}</p>
+        <p>{item?.price}</p>
       </div>
     </>
   );

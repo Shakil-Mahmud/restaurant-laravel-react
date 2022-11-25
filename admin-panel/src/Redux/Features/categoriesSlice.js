@@ -8,8 +8,8 @@ const initialState = {
   error: null,
 };
 export const fetchCategories = createAsyncThunk('categories/fetchCategories', async ()=>{
-    // const response = await axios.get(ALL_CATEGORIES);
-    const response = await axios.get("http://127.0.0.1:8000/api/categories/all");
+    const response = await axios.get(ALL_CATEGORIES);
+    // const response = await axios.get("http://127.0.0.1:8000/api/categories/all");
     return response.data;
 } );
 

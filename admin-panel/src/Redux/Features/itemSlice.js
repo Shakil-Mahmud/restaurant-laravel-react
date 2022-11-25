@@ -8,6 +8,7 @@ const initialState = {
 };
 
 export const fetchAllItems  = createAsyncThunk('items/fetchAllItems', async ()=>{
+    console.log("~~~~~~ fetchedallItem get Called");
     const response = await axios.get(ALL_ITEMS);
     return response.data;
     // console.log(response);
