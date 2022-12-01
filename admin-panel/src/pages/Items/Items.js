@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { AddButton, FilterDropdownBtn, ItemsList, SearchBar } from '../../Components/components';
+import { AddButton, FilterDropdownBtn, ItemsList, SearchBar } from '../../components/components';
 import { ALL_CATEGORIES, ALL_ITEMS } from '../../Routes/apiUrls';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { fetchAllItems, selectAllItems } from '../../Redux/Features/itemSlice';
@@ -41,9 +41,7 @@ function Items() {
   useEffect(()=>{
     getAllItemsData();
   }, [])
-  console.log("CCCCCAATEEEGOORRIES: ", allCategories);
-  // console.log(allItems);
-  // console.log("typeof allItems && LLLLL", typeof allItems === "object" && Object.keys(allItems).length>0);
+
 
   return (
     <>

@@ -1,18 +1,19 @@
 
 import axios from 'axios';
 import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
-import { FormHeading, InputField, SubmitButton } from '../../Components/components';
+import { FormHeading, InputField, SubmitButton } from '../../components/components';
 import AuthenticationForm from '../../Layouts/AuthenticationForm/AuthenticationForm'
-import { login, selectCurrentUser } from '../../Redux/Features/userSlice';
+import { login } from '../../Redux/Features/userSlice';
 import { SIGN_IN } from '../../Routes/apiUrls';
-import { validateEmail } from "../../Utils/ValidationRules";
+import { validateEmail } from "../../utils/ValidationRules";
+
+
 function SignIn() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    console.log(useSelector(selectCurrentUser));
-    // console.log();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         const data = new FormData(e.target);
@@ -27,17 +28,12 @@ function SignIn() {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 });
-                console.log(response);
-                console.log(response?.data?.success);
-                console.log(response?.data?.data);
-                console.log(response?.data?.token);
-                if (response?.data?.success) {
-                  console.log("success");
-                  dispatch(login({user:response?.data?.data, token: response?.data?.token}));
-                  navigate('/');
-                }
-
-          // send post request
+    
+            if (response?.data?.success) {
+              console.log("success");
+              dispatch(login({user:response?.data?.data, token: response?.data?.token}));
+              navigate('/');
+            }
         }
     }
   return (

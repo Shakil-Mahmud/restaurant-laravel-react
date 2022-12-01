@@ -2,7 +2,7 @@ import React from "react";
 import { selectCurrentUser } from "./Redux/Features/userSlice";
 import { useDispatch, useSelector } from "react-redux";
 import {Route, Routes} from 'react-router-dom';
-import { Categories, Dashboard, Items, Login } from "./pages";
+import { Categories, Dashboard, ItemEdit, Items, Login } from "./pages";
 import MainLayout from "./Layouts/MainLayout/MainLayout";
 import { CATEGORY, ITEM } from "./Routes/path";
 
@@ -24,6 +24,7 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path={ITEM}>
               <Route index element={<Items />} />
+              <Route path="edit" element={<ItemEdit />} />
             </Route>
             <Route path={CATEGORY}>
               <Route index element={<Categories />} />

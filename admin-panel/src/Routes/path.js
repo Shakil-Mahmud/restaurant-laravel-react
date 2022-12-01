@@ -13,3 +13,4 @@ export const RESET_PASSWORD = "/reset/password";
 
 export const CATEGORY = "/category";
 export const ITEM = "/item";
+export const ITEM_EDIT = "/item/edit";

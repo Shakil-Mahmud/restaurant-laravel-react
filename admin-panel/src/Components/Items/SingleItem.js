@@ -1,13 +1,18 @@
 import React, { useState } from 'react'
-import { ToggleButton } from "../../Components/components";
+import { useNavigate } from 'react-router-dom';
+import { ToggleButton, EditButton } from "../../components/components";
 
 function SingleItem({item}) {
   // console.log(">>>>>> Single item page");
   // console.log("*******Single item", item);
+  const navigate = useNavigate();
   const [checked, setChecked] = useState(true);
   const handleCheck = ()=>{
     setChecked(!checked);
   }
+
+  const handleEdit = ()=> navigate()
+
   return (
     <>
       <div
@@ -16,7 +21,8 @@ function SingleItem({item}) {
           h-[12rem] sm:h-[10rem] md:h-[12rem] lg:h-[12rem] xl:h-[12rem]
           "
       >
-        <div className="flex w-full justify-end items-start align-top">
+        <div className="flex w-full justify-between items-start align-top px-2">
+          <EditButton />
           <ToggleButton checked={checked} handleCheck={handleCheck} />
         </div>
         <div className="fle w-full h-[80%]">

@@ -21,6 +21,7 @@ export { default as FilterDropdownBtn } from "./FormComponents/FilterDropdownBtn
 export { default as SubmitButton } from "./Buttons/SubmitButton";
 export { default as AddButton } from "./Buttons/AddButton";
 export { default as ToggleButton } from "./Buttons/ToggleButton";
+export { default as EditButton } from "./Buttons/EditButton";
 
 // Items
 export { default as ItemsList } from "./Items/ItemsList";
