@@ -28,3 +28,9 @@ export { default as SubmitButton } from "./Buttons/SubmitButton";
 export { default as AllMenuButton } from "./Buttons/AllMenuButton";
 export { default as NavbarDropdownButton } from "./Buttons/NavbarDropdownButton";
 
+
+export { default as SimilarItems } from "./SimilarItems/SimilarItems";
+export { default as SingleSimilarItem } from "./SimilarItems/SingleSimilarItem";
+
+// Images
+export { default as SmallImage } from "./ImageFrame/SmallImage";

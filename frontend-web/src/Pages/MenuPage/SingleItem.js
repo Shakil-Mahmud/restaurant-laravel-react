@@ -1,11 +1,11 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom';
-import { ItemCategory, ItemDescription, ItemName, ItemPrice, SingleItemImage } from '../../Components/components';
+import { ItemCategory, ItemDescription, ItemName, ItemPrice, SimilarItems, SingleItemImage, SingleSimilarItem } from '../../Components/components';
 import { PageContainer } from '../../Layouts/Layouts';
 
 function SingleItem() {
     const {state} = useLocation();
-    console.log(state.item.name);
+    console.log(state.item);
     console.log(state.item.image);
   return (
     <>
@@ -30,6 +30,9 @@ function SingleItem() {
             <ItemPrice text={state.item.price} />
           </div>
         </div>
+      </PageContainer>
+      <PageContainer>
+        <SimilarItems id={state.item.id} categoryID={state.item.category_id} />
       </PageContainer>
     </>
   );
