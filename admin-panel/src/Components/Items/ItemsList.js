@@ -2,7 +2,7 @@ import React from 'react'
 import SingleItem from './SingleItem'
 
 function ItemsList({ items, category }) {
-  console.log(category);
+  // console.log(category);
   // console.log(">>>>>> itemList");
   // console.log("+++++++++", items);
   return (

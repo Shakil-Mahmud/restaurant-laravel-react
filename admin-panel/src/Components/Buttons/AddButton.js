@@ -1,5 +1,5 @@
 import React from 'react'
-import { ArrowDown, Plus } from '../../utils/svgIcons'
+import {Plus } from '../../Utils/svgIcons'
 
 function AddButton({text}) {
   return (

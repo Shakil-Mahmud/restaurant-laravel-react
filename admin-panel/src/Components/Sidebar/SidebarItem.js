@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ArrowDown } from '../../utils/svgIcons';
+import { ArrowDown } from '../../Utils/svgIcons';
 
 function SidebarItem({icon, name, path}) {
   const navigate = useNavigate();

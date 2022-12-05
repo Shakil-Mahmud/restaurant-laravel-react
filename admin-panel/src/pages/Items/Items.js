@@ -1,47 +1,25 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { AddButton, FilterDropdownBtn, ItemsList, SearchBar } from '../../components/components';
-import { ALL_CATEGORIES, ALL_ITEMS } from '../../Routes/apiUrls';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { fetchAllItems, selectAllItems } from '../../Redux/Features/itemSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { AddButton, FilterDropdownBtn, ItemsList, SearchBar } from '../../Components/components';
+import { fetchCategories, selectAllCategories } from '../../Redux/Features/categoriesSlice';
+import { fetchAllItems, getItemByCategory, selectAllItems } from '../../Redux/Features/itemSlice';
 
 function Items() {
-  // const dispatch = useDispatch();
-  // const getItems = useSelector(selectAllItems);
-  // const [allItems, setAllItems] = useState(getItems.data);
-  const [allItems, setAllItems] = useState([]);
-  const [allCategories, setCategories] = useState([]);
+  const dispatch = useDispatch();
   const [selectedCategory, setSelectedCategory] = useState('all');
 
+  const allItems = useSelector(selectAllItems);
+  const allCategories = useSelector(selectAllCategories)?.data;
+
   const handleFilterChange = (e) => setSelectedCategory(e.target.value);
-  // const handleFilterChange = (e)=> console.log("IIIIIIIIIIDDDDDDD", e.target.value);
-  // const handleFilterChange = (selectedCategoryID)=> console.log("IIIIIIIIIIDDDDDDD", selectedCategoryID);
 
-  function getAllCategories(){
-    const data = axios
-      .get(ALL_CATEGORIES)
-      .then((res) => setCategories(res.data.data))
-      .catch((err)=> console.log(err));
-  }
-  useEffect(()=>{
-    getAllCategories();
-  },[]);
-  async function getAllItemsData() {
-    try{
-      const data = await axios.get(ALL_ITEMS);
-      if (data?.data?.success) {
-        setAllItems(data?.data?.data);
-      }
-    }
-    catch{
-      console.log("error");
-    }
-  }
+  // console.log("####itemss#", allItems);
+  // console.log("selected cat>>", selectedCategory);
 
-  useEffect(()=>{
-    getAllItemsData();
-  }, [])
-
+  useEffect(() => {
+    dispatch(fetchCategories());
+    selectedCategory === 'all' ?  dispatch(fetchAllItems()) : dispatch(getItemByCategory(selectedCategory));
+  }, [dispatch, selectedCategory]);
 
   return (
     <>
@@ -56,14 +34,18 @@ function Items() {
         <div className="flex space-x-2">
           <AddButton text={"Add new item"} />
           <SearchBar />
-          <FilterDropdownBtn
+          {typeof allItems === "object" && Object.keys(allItems).length > 0 ?
+            (<FilterDropdownBtn
             allCategories={allCategories}
             selectedCategory={selectedCategory}
             handleFilterChange={handleFilterChange}
-          />
+            />)
+            :
+            <></>
+         }
         </div>
         {typeof allItems === "object" && Object.keys(allItems).length > 0 ? (
-          <ItemsList items={allItems} category={selectedCategory} />
+          <ItemsList items={allItems?.data} category={selectedCategory} />
         ) : (
           <></>
         )}

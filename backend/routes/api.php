@@ -43,6 +43,7 @@ Route::group([ 'middleware' => ['auth:sanctum', 'ability:admin'] ], function(){
     Route::post('/items/store', [ItemController::class, 'store'])->name('item.store');
     Route::post('/items/store', [ItemController::class, 'store'])->name('item.store');
     Route::post('/items/{id}', [ItemController::class, 'update'])->name('item.update');
+    Route::post('/items/status/update', [ItemController::class, 'statusUpdate'])->name('item.status.update');
     Route::delete('/items/{id}', [ItemController::class, 'destroy'])->name('item.destroy');
 });
 

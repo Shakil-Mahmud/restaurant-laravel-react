@@ -1,6 +1,6 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom';
-import { Navbar, Sidebar } from '../../components/components';
+import { Navbar, Sidebar } from '../../Components/components';
 function MainLayout() {
   return (
     <>

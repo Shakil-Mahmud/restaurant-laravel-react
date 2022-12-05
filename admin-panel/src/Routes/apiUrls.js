@@ -10,7 +10,10 @@ export const SEND_OTP = ADMIN_API_URL + "otp/send";
 export const CHECK_OTP = ADMIN_API_URL + "otp/check";
 
 
+export const CATEGORIES = API_URL+"categories/";
+
+// Items api
 export const ALL_ITEMS = API_URL+"items/all";
 export const ALL_CATEGORIES = API_URL+"categories/all";
-export const CATEGORIES = API_URL+"categories/";
 export const Items_By_CATEGORIES = API_URL + "categories/items/";
+export const Items_STATUS_UPDATE = API_URL + "items/status/update";

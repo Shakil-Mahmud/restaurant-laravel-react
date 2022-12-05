@@ -1,5 +1,5 @@
 import React from 'react'
-import { EditIcon } from '../../utils/svgIcons'
+import { EditIcon } from '../../Utils/svgIcons'
 
 function EditButton({handleEdit}) {
   return (

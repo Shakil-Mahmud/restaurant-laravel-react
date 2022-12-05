@@ -161,7 +161,31 @@ class ItemController extends Controller
         //handle if not exist
         return $item;
     }
+    public function statusUpdate(Request $request){
+        // dd($request->get('id'));
+        try {
+            $item = Item::find($request->get('id'));
+            if(!$item)
+                throw new Exception("Item does not exits", 2);
 
+            if($item->available == 0)
+                $item->available = 1;
+            else
+                $item->available = 0;
+            $item->save();
+
+            return response()->json([
+                "success" => true,
+                "data" => $item,
+                "message" => "items status updated successfully",
+            ], Response::HTTP_OK);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => $e->getMessage(),
+            ], Response::HTTP_BAD_REQUEST);
+    }
+}
     /**
      * Remove the specified resource from storage.
      *

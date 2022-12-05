@@ -3,11 +3,11 @@ import axios from 'axios';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from "react-router-dom";
-import { FormHeading, InputField, SubmitButton } from '../../components/components';
+import { FormHeading, InputField, SubmitButton } from '../../Components/components';
 import AuthenticationForm from '../../Layouts/AuthenticationForm/AuthenticationForm'
 import { login } from '../../Redux/Features/userSlice';
 import { SIGN_IN } from '../../Routes/apiUrls';
-import { validateEmail } from "../../utils/ValidationRules";
+import { validateEmail } from "../../Utils/ValidationRules";
 
 
 function SignIn() {
@@ -28,7 +28,7 @@ function SignIn() {
                     headers: { 'Content-Type': 'application/json' },
                     withCredentials: true
                 });
-    
+
             if (response?.data?.success) {
               console.log("success");
               dispatch(login({user:response?.data?.data, token: response?.data?.token}));

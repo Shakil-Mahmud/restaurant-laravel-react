@@ -1,5 +1,5 @@
 import React from 'react'
-import { SearchIcon } from '../../utils/svgIcons'
+import { SearchIcon } from '../../Utils/svgIcons'
 
 function SearchBar() {
   return (

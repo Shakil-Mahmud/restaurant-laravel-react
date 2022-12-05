@@ -5,9 +5,9 @@ import App from './App';
 import {BrowserRouter} from 'react-router-dom'
 import { Provider } from 'react-redux';
 import {store} from './Redux/store'
-import { fetchAllItems } from './Redux/Features/itemSlice';
+import { fetchCategories } from './Redux/Features/categoriesSlice';
 
-// store.dispatch(fetchAllItems());
+store.dispatch(fetchCategories());
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
