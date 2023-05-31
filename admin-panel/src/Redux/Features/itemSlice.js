@@ -8,18 +8,14 @@ const initialState = {
 };
 
 export const fetchAllItems  = createAsyncThunk('items/fetchAllItems', async ()=>{
-    console.log("~~~~~~ fetchedallItem get Called");
     const response = await axios.get(ALL_ITEMS);
     return response.data;
-    // console.log(response);
 })
 
 export const getItemByCategory = createAsyncThunk(
   "items/categoryWise",
   async (categoryID) => {
-    console.log("#### enter fetch");
     const response = await axios.get(Items_By_CATEGORIES + categoryID);
-    console.log("#### cccoomplete fetch");
     return response?.data;
   }
 );
@@ -27,7 +23,6 @@ export const getItemByCategory = createAsyncThunk(
 export const itemStatusUpdate = createAsyncThunk(
   "items/status",
     async (data) => {
-        // console.log(state.auth);
         const token = 'Bearer' + localStorage.getItem("adminToken");
         console.log("token: ", token);
         console.log("bbbb", data);
@@ -35,12 +30,10 @@ export const itemStatusUpdate = createAsyncThunk(
             const response = await axios.post(Items_STATUS_UPDATE, data, {
               headers: { Authorization: "Bearer 74|70nJpcfOwGI1pUsB52tOmxuA3tMvz3Wshp6LAaTA",},
             });
-
             return response?.data;
         } catch (error) {
             console.log(">>>>>", error.message);
         }
-
     }
 );
 

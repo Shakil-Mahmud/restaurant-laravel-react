@@ -27,3 +27,6 @@ export { default as EditButton } from "./Buttons/EditButton";
 export { default as ItemsList } from "./Items/ItemsList";
 export { default as SingleItem } from "./Items/SingleItem";
 
+// Modals
+export { default as AddItem } from "./Modal/AddItem/AddItem";
+
